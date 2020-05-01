@@ -2,32 +2,38 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".View.EditNoteFragment"
-        android:orientation="vertical">
+        tools:context=".View.EditNoteFragment">
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edit_titleTF"
-            android:layout_margin="10dp"
-            android:layout_weight="1.2"
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:hint="Title"
             app:boxCornerRadiusTopEnd="2dp"
-
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:layout_constraintBottom_toTopOf="@+id/edit_DescriptionTF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:inputType="text"
-                android:layout_width="match_parent"
                 android:id="@+id/edit_titleET"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:lines="1"
                 android:gravity="start"
+                android:inputType="text"
+                android:lines="1"
                 android:maxLines="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#000" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -35,35 +41,39 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_below="@+id/titleTF"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="10dp"
-            android:layout_weight="7"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:hint="Description"
-
-            app:boxCornerRadiusTopEnd="2dp">
+            app:boxCornerRadiusTopEnd="2dp"
+            app:layout_constraintBottom_toTopOf="@id/updateBTN"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_titleTF">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_descriptionET"
-                android:lines="18"
-                android:gravity="start"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="start"
                 android:inputType="textMultiLine"
+                android:lines="28"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#000" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:layout_gravity="end"
             android:id="@+id/updateBTN"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight=".90"
-            android:layout_margin="15dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/rounded_shape_bg"
             android:padding="2dp"
-            android:text="update" />
+            android:text="Update"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_DescriptionTF" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
